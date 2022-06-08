@@ -29,6 +29,30 @@ const reducer = (state, action) => {
   }
 
 }
+//const [count, setCount] = useState()
+// Init state
+const initStateS = {
+  job: '',
+  jobs: []
+}
+
+// Action
+const SET_JOBS = 'set_jobs'
+const ADD_JOBS = 'add_jobs'
+const DELETE_JOBS = 'delete_jobs'
+
+
+// reducer function
+
+const reducers = (initStateS, action) => {
+  switch (action) {
+    case SET_JOBS:
+      break;
+      c
+  }
+}
+
+// Dispatch
 function App() {
   const [count, dispatch] = useReducer(reducer, initState)
   return (
