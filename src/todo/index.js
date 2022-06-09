@@ -1,16 +1,18 @@
 
-import { useState, useReducer, useRef } from 'react'
+import { useReducer, useRef } from 'react'
 
-import { UP_ACTION, DOWN_ACTION, SET_JOBS, DELETE_JOBS, ADD_JOBS } from './constants'
+import { UP_ACTION, DOWN_ACTION } from './constants'
 
 import { initState, initStateS, reducer, reducers } from './reducer'
 
 import { setJobs, addJobs, deleteJobs } from './action'
 
+import logger from './logger'
+
 // Dispatch
 function App() {
     const [count, dispatch] = useReducer(reducer, initState)
-    const [state, dispatchs] = useReducer(reducers, initStateS)
+    const [state, dispatchs] = useReducer(logger(reducers), initStateS)
     const { job, jobs } = state
     const inputRef = useRef()
     const handleSubmitted = () => {
@@ -30,9 +32,7 @@ function App() {
                 value={job}
                 placeholder='Anh Đăng đẹp trai'
                 onChange={e => {
-                    // console.log(dispatchs)
                     dispatchs(setJobs(e.target.value))
-                    console.log(1)
                 }}
             />
             <button onClick={handleSubmitted}>ADD</button>

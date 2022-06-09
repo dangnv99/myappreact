@@ -23,8 +23,6 @@ export const initStateS = {
 }
 // reducer function
 export const reducers = (state, action) => {
-    console.log('action', action)
-    console.log('Pre state', state)
     let newState
     switch (action.type) {
         case SET_JOBS:
@@ -50,7 +48,6 @@ export const reducers = (state, action) => {
         default:
             throw new Error('Invalid action type: ' + action.type);
     }
-    console.log('New', newState)
     return newState
 }
 
